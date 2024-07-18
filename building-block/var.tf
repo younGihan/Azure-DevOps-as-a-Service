@@ -32,9 +32,13 @@ variable "ado_org" {
 }
 variable "ado_user" {
   type = string
+    sensitive   = true
+
 }
 variable "ado_pat" {
   type = string
+    sensitive   = true
+
 }
 # variable "ado_org_pat_suffix" {
 #   type = string
