@@ -12,21 +12,21 @@ terraform {
 }
 
 # Local Backend for testing
-# terraform {
-#   backend "local" {
-#     path = "${var.key_prefix}.${uuid}.terraform.tfstate"
-#   }
-# }
-
-# Azure Backend
 terraform {
-  backend "azurerm" {
-    resource_group_name  = var.rg_name
-    storage_account_name = var.storage_account_name
-    container_name       = var.container_name
-    key                  = "${var.key_prefix}.${uuid}.terraform.tfstate"
+  backend "local" {
+    path = "terraform.tfstate"
   }
 }
+
+# # Azure Backend
+# terraform {
+#   backend "azurerm" {
+#     resource_group_name  = var.rg_name
+#     storage_account_name = var.storage_account_name
+#     container_name       = var.container_name
+#     key                  = "${var.key_prefix}.${uuid}.terraform.tfstate"
+#   }
+# }
 
 # via AD auth
 # terraform {
