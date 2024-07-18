@@ -81,7 +81,7 @@ resource "null_resource" "create_users" {
     command = <<EOF
 # Create new User
 echo "Creating entitlement for user: ${each.value.email}"
-curl -s --location 'https://vsaex.dev.azure.com/meshcloud-prod/_apis/userentitlements?api-version=7.2-preview.4' \
+curl -s --location 'https://vsaex.dev.azure.com/${var.ado_org}/_apis/userentitlements?api-version=7.2-preview.4' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic ${local.base64_auth}' \
 --data-raw '{
